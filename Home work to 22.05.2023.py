@@ -158,271 +158,218 @@
 # ■ Добавки.
 # Для реализации используйте порождающие паттерны.
 
-# from abc import ABC, abstractmethod
-#
-#
-# class Spaghetti(ABC):
-#
-#     @abstractmethod
-#     def cook_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_sauce(self):
-#         pass
-#
-#     @abstractmethod
-#     def supplement(self):
-#         pass
-#
-#
-# class Ravioli(ABC):
-#
-#     @abstractmethod
-#     def make_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def filling(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_sauce(self):
-#         pass
-#
-#     @abstractmethod
-#     def supplement(self):
-#         pass
-#
-#
-# class Penne(ABC):
-#
-#     @abstractmethod
-#     def cook_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_sauce(self):
-#         pass
-#
-#     @abstractmethod
-#     def supplement(self):
-#         pass
-#
-#
-# class Cappellacci(ABC):
-#
-#     @abstractmethod
-#     def make_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def filling(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_pasta(self):
-#         pass
-#
-#     @abstractmethod
-#     def cook_sauce(self):
-#         pass
-#
-#     @abstractmethod
-#     def supplement(self):
-#         pass
-#
-#
-# class BologneseSpaghetti(Spaghetti):
-#     def make_pasta(self):
-#         pass
-#
-#     def filling(self):
-#         pass
-#
-#     def cook_pasta(self):
-#         print('Сварить спагетти')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус болоньезе')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённым базиликом')
-#
-#
-# class BolognesePenne(Penne):
-#
-#     def make_pasta(self):
-#         pass
-#
-#     def filling(self):
-#         pass
-#
-#     def cook_pasta(self):
-#         print('Сварить пенне')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус болоньезе')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённым базиликом')
-#
-#
-# class CarbonaraSpaghetti(Spaghetti):
-#
-#     def make_pasta(self):
-#         pass
-#
-#     def filling(self):
-#         pass
-#
-#     def cook_pasta(self):
-#         print('Сварить спагетти')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус карбонара')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённым орегано')
-#
-#
-# class CarbonaraPenne(Penne):
-#
-#     def make_pasta(self):
-#         pass
-#
-#     def filling(self):
-#         pass
-#
-#     def cook_pasta(self):
-#         print('Сварить пенне')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус карбонара')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённым орегано')
-#
-#
-# class RavioliShrimp(Ravioli):
-#
-#     def make_pasta(self):
-#         print('Лепим равиоли')
-#
-#     def filling(self):
-#         print('Начинка - креветки')
-#
-#     def cook_pasta(self):
-#         print('Сварить равиоли')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус бешамель')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённым орегано')
-#
-#
-# class RavioliMeat(Ravioli):
-#
-#     def make_pasta(self):
-#         print('Лепим равиоли')
-#
-#     def filling(self):
-#         print('Начинка - мясной фарш')
-#
-#     def cook_pasta(self):
-#         print('Сварить равиоли')
-#
-#     def cook_sauce(self):
-#         print('Добавить соус томатный')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённой петрушкой')
-#
-#
-# class CappellacciPumpkin(Cappellacci):      # у этой пасты начинка бывает только из тыквы
-#
-#     def make_pasta(self):
-#         print('Лепим каппеллаччи')
-#
-#     def filling(self):
-#         print('Начинка - тыква')
-#
-#     def cook_pasta(self):
-#         print('Сварить каппеллаччи')
-#
-#     def cook_sauce(self):
-#         print('Добавить бульон')
-#
-#     def supplement(self):
-#         print('Посыпать сыром и измельчённой петрушкой')
-#
-# class AbstractFactory(ABC):
-#
-#     @abstractmethod
-#     def create_pasta(self):
-#         pass
-#
-#
-# class PastaBologneseSpaghetti(AbstractFactory):
-#
-#     def create_pasta(self):
-#         return BologneseSpaghetti()
-#
-#
-# class PastaBolognesePenne(AbstractFactory):
-#
-#     def create_pasta(self):
-#         return BolognesePenne()
-#
-#
-# class PastaCarbonaraSpaghetti(AbstractFactory):
-#
-#     def create_pasta(self):
-#         return CarbonaraSpaghetti()
-#
-#
-# class PastaCarbonaraPenne(AbstractFactory):
-#
-#     def create_pasta(self):
-#         return CarbonaraPenne()
-#
-#
-# class PastaRavioliShrimp(AbstractFactory):
-#     def create_pasta(self):
-#         return RavioliShrimp()
-#
-#
-# class PastaRavioliMeat(AbstractFactory):
-#     def create_pasta(self):
-#         return RavioliMeat()
-#
-#
-# class PastaCappellacci(AbstractFactory):
-#
-#     def create_pasta(self):
-#         return CappellacciPumpkin()
-#
-#
-# def main():
-#     for factory in (PastaBologneseSpaghetti(), PastaBolognesePenne(), PastaCarbonaraSpaghetti(), PastaCarbonaraPenne(),
-#                     PastaRavioliShrimp(), PastaRavioliMeat(), PastaCappellacci()):
-#         product_a = factory.create_pasta()
-#         print(product_a)
-#         product_a.make_pasta()
-#         product_a.filling()
-#         product_a.cook_pasta()
-#         product_a.cook_sauce()
-#         product_a.supplement()
-#         print("*" * 20)
-#
-#
-# if __name__ == "__main__":
-#     main()
+from abc import ABC, abstractmethod
+
+
+class Pasta(ABC):
+    @abstractmethod
+    def make_pasta(self):
+        pass
+
+    @abstractmethod
+    def filling(self):
+        pass
+
+    @abstractmethod
+    def cook_pasta(self):
+        pass
+
+    @abstractmethod
+    def cook_sauce(self):
+        pass
+
+    @abstractmethod
+    def supplement(self):
+        pass
+
+
+class BologneseSpaghetti(Pasta):
+    def make_pasta(self):
+        pass
+
+    def filling(self):
+        pass
+
+    def cook_pasta(self):
+        print('Сварить спагетти')
+
+    def cook_sauce(self):
+        print('Добавить соус болоньезе')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённым базиликом')
+
+
+class BolognesePenne(Pasta):
+
+    def make_pasta(self):
+        pass
+
+    def filling(self):
+        pass
+
+    def cook_pasta(self):
+        print('Сварить пенне')
+
+    def cook_sauce(self):
+        print('Добавить соус болоньезе')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённым базиликом')
+
+
+class CarbonaraSpaghetti(Pasta):
+
+    def make_pasta(self):
+        pass
+
+    def filling(self):
+        pass
+
+    def cook_pasta(self):
+        print('Сварить спагетти')
+
+    def cook_sauce(self):
+        print('Добавить соус карбонара')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённым орегано')
+
+
+class CarbonaraPenne(Pasta):
+
+    def make_pasta(self):
+        pass
+
+    def filling(self):
+        pass
+
+    def cook_pasta(self):
+        print('Сварить пенне')
+
+    def cook_sauce(self):
+        print('Добавить соус карбонара')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённым орегано')
+
+
+class RavioliShrimp(Pasta):
+
+    def make_pasta(self):
+        print('Лепим равиоли')
+
+    def filling(self):
+        print('Начинка - креветки')
+
+    def cook_pasta(self):
+        print('Сварить равиоли')
+
+    def cook_sauce(self):
+        print('Добавить соус бешамель')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённым орегано')
+
+
+class RavioliMeat(Pasta):
+
+    def make_pasta(self):
+        print('Лепим равиоли')
+
+    def filling(self):
+        print('Начинка - мясной фарш')
+
+    def cook_pasta(self):
+        print('Сварить равиоли')
+
+    def cook_sauce(self):
+        print('Добавить соус томатный')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённой петрушкой')
+
+
+class CappellacciPumpkin(Pasta):      # у этой пасты начинка бывает только из тыквы
+
+    def make_pasta(self):
+        print('Лепим каппеллаччи')
+
+    def filling(self):
+        print('Начинка - тыква')
+
+    def cook_pasta(self):
+        print('Сварить каппеллаччи')
+
+    def cook_sauce(self):
+        print('Добавить бульон')
+
+    def supplement(self):
+        print('Посыпать сыром и измельчённой петрушкой')
+
+
+class AbstractFactory(ABC):
+
+    @abstractmethod
+    def create_pasta(self):
+        pass
+
+
+class PastaBologneseSpaghetti(AbstractFactory):
+
+    def create_pasta(self):
+        return BologneseSpaghetti()
+
+
+class PastaBolognesePenne(AbstractFactory):
+
+    def create_pasta(self):
+        return BolognesePenne()
+
+
+class PastaCarbonaraSpaghetti(AbstractFactory):
+
+    def create_pasta(self):
+        return CarbonaraSpaghetti()
+
+
+class PastaCarbonaraPenne(AbstractFactory):
+
+    def create_pasta(self):
+        return CarbonaraPenne()
+
+
+class PastaRavioliShrimp(AbstractFactory):
+    def create_pasta(self):
+        return RavioliShrimp()
+
+
+class PastaRavioliMeat(AbstractFactory):
+    def create_pasta(self):
+        return RavioliMeat()
+
+
+class PastaCappellacci(AbstractFactory):
+
+    def create_pasta(self):
+        return CappellacciPumpkin()
+
+
+def main():
+    for factory in (PastaBologneseSpaghetti(), PastaBolognesePenne(), PastaCarbonaraSpaghetti(), PastaCarbonaraPenne(),
+                    PastaRavioliShrimp(), PastaRavioliMeat(), PastaCappellacci()):
+        product_a = factory.create_pasta()
+        print(product_a)
+        product_a.make_pasta()
+        product_a.filling()
+        product_a.cook_pasta()
+        product_a.cook_sauce()
+        product_a.supplement()
+        print("*" * 20)
+
+
+if __name__ == "__main__":
+    main()
 
 
 # Задание 3
